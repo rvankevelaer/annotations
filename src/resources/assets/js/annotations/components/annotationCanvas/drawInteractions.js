@@ -9,7 +9,10 @@ biigle.$component('annotations.components.annotationCanvas.drawInteractions', fu
 
     var penOrShift = function (mapBrowserEvent) {
       var pointerEvt = mapBrowserEvent.pointerEvent;
-      return pointerEvt.pointerType === "pen" || pointerEvt.shiftKey;
+      if (pointerEvt !== undefined) {
+        return pointerEvt.pointerType === "pen" || pointerEvt.shiftKey;
+      }
+      return false;
     };
 
     return {
